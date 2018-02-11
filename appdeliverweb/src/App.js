@@ -10,8 +10,9 @@ import Home from './components/Home';
 import './App.css';
 
 
-
-class App extends Component {
+type Props = {}
+type State = {}
+class App extends Component<Props, State> {
   render() {
     return (
         <Router>
