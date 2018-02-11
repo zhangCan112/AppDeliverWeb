@@ -7,6 +7,7 @@
     "qrcode.react": "^0.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
     "react-scripts": "1.1.0",
     "whatwg-fetch": "^2.0.3"
   },
@@ -14,10 +15,14 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "flow": "flow"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-plugin-import": "^1.6.3",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.65.0",
     "react-app-rewire-less": "^2.1.0",
     "react-app-rewired": "^1.4.1"
   }
