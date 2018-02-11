@@ -6,6 +6,7 @@ import {
     Switch
 } from 'react-router-dom';
 import logo from './logo.svg';
+import Home from './components/Home';
 import './App.css';
 
 
@@ -24,7 +25,7 @@ class App extends Component {
                 </header>
                 {/*结合Switch组件可以匹配到都匹配不到的路劲,404等...*/}
                 <Switch>
-                    {/*<Route path='/' exact component={Home}/>*/}
+                    <Route path='/' exact component={Home}/>
                     {/*<Route path='/user'  component={User}/>*/}
                     {/*<Route path='/search'  component={Search}/>*/}
                     {/*<Route path='/detail'  component={Detail}/>*/}
