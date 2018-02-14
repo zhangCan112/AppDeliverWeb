@@ -7,7 +7,9 @@ import {
 } from 'react-router-dom';
 import logo from './logo.svg';
 import Home from './components/Home';
+import bgv from './assets/homeBackground.jpg'
 import './App.css';
+
 
 
 type Props = {}
@@ -19,21 +21,24 @@ class App extends Component<Props, State> {
             <div className="App">
                 {/**
                  * 这里可以公共的样式,比如 头部, 尾部, 等.
-                 */}
+                 */
+               }
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
                 {/*结合Switch组件可以匹配到都匹配不到的路劲,404等...*/}
-                <Switch>
-                    <Route path='/' exact component={Home}/>
-                    {/*<Route path='/user'  component={User}/>*/}
-                    {/*<Route path='/search'  component={Search}/>*/}
-                    {/*<Route path='/detail'  component={Detail}/>*/}
-                    {/*<Route path='/city'  component={City}/>*/}
-                    {/*<Route component={NotFound}/>*/}
-                </Switch>
-                footer
+                <body background={bgv} background-attachment="fixed" style={{flex:1}}>
+                  <Switch>
+                      <Route path='/' exact component={Home}/>
+                      {/*<Route path='/user'  component={User}/>*/}
+                      {/*<Route path='/search'  component={Search}/>*/}
+                      {/*<Route path='/detail'  component={Detail}/>*/}
+                      {/*<Route path='/city'  component={City}/>*/}
+                      {/*<Route component={NotFound}/>*/}
+                  </Switch>
+                </body>
+                <div> footer</div>
             </div>
         </Router>
     );

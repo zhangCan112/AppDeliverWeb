@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .App-logo {
