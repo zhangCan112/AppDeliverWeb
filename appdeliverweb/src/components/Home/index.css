@@ -1,0 +1,21 @@
+.Home {
+  text-align: center;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+  flex-basis: 400px;  
+}
+.item_1 {
+}
+
+.item_2 {
+  align-self: flex-end;
+}

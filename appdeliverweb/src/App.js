@@ -28,7 +28,7 @@ class App extends Component<Props, State> {
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
                 {/*结合Switch组件可以匹配到都匹配不到的路劲,404等...*/}
-                <body background={bgv} background-attachment="fixed" style={{flex:1}}>
+                <body background='white' background-attachment="fixed" className='App-body'>
                   <Switch>
                       <Route path='/' exact component={Home}/>
                       {/*<Route path='/user'  component={User}/>*/}

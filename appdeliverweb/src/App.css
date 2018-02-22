@@ -17,6 +17,10 @@
   padding: 20px;
   color: white;
 }
+.App-body {
+  flex: 1;
+  background-size: 100%;
+}
 
 .App-title {
   font-size: 1.5em;
