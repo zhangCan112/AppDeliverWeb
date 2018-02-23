@@ -23,10 +23,10 @@ class App extends Component<Props, State> {
                  * 这里可以公共的样式,比如 头部, 尾部, 等.
                  */
                }
-                <header className="App-header">
+                {/* <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <h1 className="App-title">Welcome to React</h1>
-                </header>
+                </header> */}
                 {/*结合Switch组件可以匹配到都匹配不到的路劲,404等...*/}
                 <body background='white' background-attachment="fixed" className='App-body'>
                   <Switch>
@@ -38,7 +38,7 @@ class App extends Component<Props, State> {
                       {/*<Route component={NotFound}/>*/}
                   </Switch>
                 </body>
-                <div> footer</div>
+                <div> AppDeliver 是自用应用内测平台 </div>
             </div>
         </Router>
     );
