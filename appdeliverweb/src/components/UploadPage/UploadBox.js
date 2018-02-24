@@ -5,14 +5,27 @@ import './index.css';
 const Dragger = Upload.Dragger;
 
 
-type Props = {}
+type Props = {
+  name: string,
+  multiple: bool,
+  action: string,
+  headers: any,
+}
 type State = {}
 
 
 export default class UploadBox extends Component<Props, State> {
+
+  static defaultProps = {
+    name: 'file',
+    multiple: false,
+    action: 'http://192.168.199.225:8181/fileUpload',
+    headers: {method: "post"},
+    method: 'post',
+  }
   render() {
     return (
-      <Dragger className='DraggerBox'>
+      <Dragger {...this.props} className='DraggerBox'>
           <div style={{padding: 50}}>
             <Button className='Button' type='primary'>
               <Icon type='upload'/> 上传应用
