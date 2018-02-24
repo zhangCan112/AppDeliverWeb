@@ -54,14 +54,22 @@
   text-align: left;
 }
 
-.Line {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color:  #C8C8C8;
-  border: 0px;
-  height: 0.5px;
-}
-
 .Remark {
   color: gray;
+}
+
+.SubTitle {
+  text-align: left;
+  font-size: 25px;
+}
+
+.SubDetail {
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  color: gray;
+}
+.UrlLink {
+  color: blue;
 }

@@ -1,0 +1,36 @@
+
+.Page {
+  text-align: center;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.Title {
+  flex-basis: 55px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.Title .Left {
+  text-align: left;
+  font-size: 20px;
+}
+
+
+.DraggerBox {
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;  
+}
+
+.Button {
+
+}

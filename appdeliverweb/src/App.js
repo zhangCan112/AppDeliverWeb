@@ -6,7 +6,8 @@ import {
     Switch
 } from 'react-router-dom';
 import logo from './logo.svg';
-import Home from './components/Home';
+import DownloadPage from './components/DownloadPage';
+import UploadPage from './components/UploadPage/index';
 import bgv from './assets/homeBackground.jpg'
 import './App.css';
 
@@ -30,8 +31,8 @@ class App extends Component<Props, State> {
                 {/*结合Switch组件可以匹配到都匹配不到的路劲,404等...*/}
                 <body background='white' background-attachment="fixed" className='App-body'>
                   <Switch>
-                      <Route path='/' exact component={Home}/>
-                      {/*<Route path='/user'  component={User}/>*/}
+                      <Route path='/' exact component={DownloadPage}/>
+                      <Route path='/upload'  component={UploadPage}/>
                       {/*<Route path='/search'  component={Search}/>*/}
                       {/*<Route path='/detail'  component={Detail}/>*/}
                       {/*<Route path='/city'  component={City}/>*/}

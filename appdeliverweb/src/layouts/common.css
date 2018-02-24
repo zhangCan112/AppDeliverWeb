@@ -1,0 +1,12 @@
+
+.HrLine {
+  background-color:  #C8C8C8;
+  max-height: 1px;
+  min-height: 1px;
+  align-self: stretch;
+}
+
+.Margin {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
