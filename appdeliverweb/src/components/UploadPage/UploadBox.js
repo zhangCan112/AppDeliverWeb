@@ -20,8 +20,7 @@ export default class UploadBox extends Component<Props, State> {
     name: 'file',
     multiple: false,
     action: 'http://192.168.199.225:8181/fileUpload',
-    headers: {method: "post"},
-    method: 'post',
+    headers: {'Access-Control-Allow-Origin' : "*"},
   }
   render() {
     return (
