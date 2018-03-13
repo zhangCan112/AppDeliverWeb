@@ -24,11 +24,32 @@
   font-size: 20px;
 }
 
+.Step {
+  margin-top: 20px;
+  margin-left: 100px;
+  text-align: left;
+  font-size: 20px;
+}
+
 
 .DraggerBox {
   margin-top: 20px;
   margin-left: 100px;
-  margin-right: 100px;  
+  margin-right: 100px;
+}
+
+.JiraListBox {
+  display: flex;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.JiraText {
+  flex: 0.7
+}
+
+.JiraIcon {
+  align-items: center;
 }
 
 .Button {
