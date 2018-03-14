@@ -25,7 +25,7 @@ export default class UploadPage extends Component<Props, State> {
         <span>
           <span>发布测试应用,仅需两步   </span>
         <span>
-          <Button type="primary">发布应用</Button>
+          <Button type="primary">发布</Button>
         </span>
       </span>
         </div>
