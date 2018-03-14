@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import UploadBox from './UploadBox';
 import '../../layouts/common.css';
-import {Input} from 'antd';
+import {Input, Button, Icon} from 'antd';
 
 type Props = {}
 type State = {
@@ -14,7 +14,7 @@ export default class UploadPage extends Component<Props, State> {
   constructor() {
     super()
     this.state = {
-      jiras: []
+      jiras: ['jira1','jira2']
     }
   }
   render() {
@@ -22,23 +22,52 @@ export default class UploadPage extends Component<Props, State> {
       <div className='Page'>
         <div className='Title'>
           <span className='Left'>发布应用</span>
-          <span>发布测试应用,仅需两步</span>
+        <span>
+          <span>发布测试应用,仅需两步   </span>
+        <span>
+          <Button type="primary">发布应用</Button>
+        </span>
+      </span>
         </div>
         <div className='HrLine'></div>
       <div className='Step'>第一步：上传App包</div>
         <UploadBox/>
-      <div className='Step'>第二步：关联Jira问题</div>
+      <div className='Step'>
+        第二步：关联Jira问题
+        <span className='JiraIcon'>
+            <Button type="dashed" shape="circle" icon="plus" />
+        </span>
+      </div>
         {this.renderJiraList()}
       </div>
     )
   }
   renderJiraList(){
+    let jiras =this.state.jiras;
+    if (jiras.length == 0) {
+      jiras = [null];
+    }
 
     return (
       <div className='JiraListBox'>
-        <span className='JiraText'><Input placeholder='测试'/></span>
-        <span className='JiraIcon'>123</span>
-      </div>
+        {
+          jiras.map((obj)=>{
+            return (
+              <div className='Jira'>
+                <span className='JiraText'><Input placeholder='请输入Jira链接' defaultValue={obj}/></span>
+              {
+                (jiras.length > 1) && (
+                  <span className='JiraIcon'>
+                      <Button type="dashed" shape="circle" icon="minus" />
+                  </span>
+              )
+              }
+              </div>
+            );
+          })
+        }
+        </div>
+
     )
   }
 }
