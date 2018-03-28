@@ -29,8 +29,8 @@
   },
   "proxy": {
     "/fileUpload": {
-      "target": "http://192.168.1.117:8181",
-      "changeOrigin":true
+      "target": "http://192.168.199.226:8181",
+      "changeOrigin": true
     }
   }
 }
