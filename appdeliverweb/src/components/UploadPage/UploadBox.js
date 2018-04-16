@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import {Upload, Icon, message, Button} from 'antd';
 import {Base64} from 'js-base64';
+import EncBase64 from 'crypto-js/enc-base64';
 import hamcSha1 from 'crypto-js/hmac-sha1';
 import sha1 from 'crypto-js/sha1';
 import './index.css';
@@ -32,8 +33,10 @@ export default class UploadBox extends Component<Props, State> {
   static defaultProps = {
     name: 'file',
     multiple: false,
-    action: '/fileUpload',
-    headers: {'Access-Control-Allow-Origin' : "*"},
+    action: 'https://appdeliver.oss-cn-hangzhou.aliyuncs.com/',
+    headers: {'Access-Control-Allow-Origin' : "*",
+              'Access-Control-Allow-Methods' : "POST",
+             },
     data: {}
   }
   render() {
@@ -44,7 +47,7 @@ export default class UploadBox extends Component<Props, State> {
         'key': 'zhangcan.app',
         'success_action_status': '200',
         'policy': policyBase64,
-        'Signature': Base64.encode(hamcSha1(policyBase64, 'T4eDGknsW2PBbDpQ9tcqTEks42tahs')),
+        'Signature': EncBase64.stringify(hamcSha1(policyBase64, 'T4eDGknsW2PBbDpQ9tcqTEks42tahs')),
       }
     }
 
