@@ -6,8 +6,10 @@ import EncBase64 from 'crypto-js/enc-base64';
 import hamcSha1 from 'crypto-js/hmac-sha1';
 import sha1 from 'crypto-js/sha1';
 import fs from 'fs';
-import 'whatwg-fetch'
+import JSZip from 'jszip';
 import './index.css';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 const Dragger = Upload.Dragger;
 
 
@@ -50,7 +52,8 @@ export default class UploadBox extends Component<Props, State> {
         'success_action_status': '200',
         'policy': policyBase64,
         'Signature': EncBase64.stringify(hamcSha1(policyBase64, 'T4eDGknsW2PBbDpQ9tcqTEks42tahs')),
-      }
+      },
+      beforeUpload: this.pilistUpload,
     }
     return (
       <Dragger {...props} className='DraggerBox'>
@@ -66,7 +69,27 @@ export default class UploadBox extends Component<Props, State> {
   }
 
   pilistUpload = (file: File) => {
-    
-  }
-
-}
+    let zip = new JSZip();
+  return  zip.loadAsync(file)
+    .then((zipObject) => {
+      return zipObject.files
+    })
+    .then((files) => {
+      for (var fileName in files) {
+        if (fileName.indexOf(".app/Info.plist") >= 0 && files.hasOwnProperty(fileName)) {
+          return fileName;
+        }
+      }
+    })
+    .then((fileName) => {
+    return  zip.file(fileName).async('string')
+    })
+    .then((content) => {
+        console.log(content);
+        console.log('我是第一步');
+    })
+    .catch(function(error){
+      console.log('error');
+     });
+   }
+ }
