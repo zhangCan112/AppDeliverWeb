@@ -5,6 +5,8 @@ import {Base64} from 'js-base64';
 import EncBase64 from 'crypto-js/enc-base64';
 import hamcSha1 from 'crypto-js/hmac-sha1';
 import sha1 from 'crypto-js/sha1';
+import fs from 'fs';
+import 'whatwg-fetch'
 import './index.css';
 const Dragger = Upload.Dragger;
 
@@ -50,7 +52,6 @@ export default class UploadBox extends Component<Props, State> {
         'Signature': EncBase64.stringify(hamcSha1(policyBase64, 'T4eDGknsW2PBbDpQ9tcqTEks42tahs')),
       }
     }
-
     return (
       <Dragger {...props} className='DraggerBox'>
           <div style={{padding: 50}}>
@@ -63,4 +64,9 @@ export default class UploadBox extends Component<Props, State> {
       </Dragger>
     )
   }
+
+  pilistUpload = (file: File) => {
+    
+  }
+
 }
