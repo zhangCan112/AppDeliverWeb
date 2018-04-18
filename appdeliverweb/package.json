@@ -34,7 +34,7 @@
   },
   "proxy": {
     "/fileUpload": {
-      "target": "https://www.baidu.com",
+      "target": "http://192.168.199.225:8181",
       "changeOrigin": true
     }
   }
