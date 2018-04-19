@@ -33,7 +33,7 @@
     "react-app-rewired": "^1.4.1"
   },
   "proxy": {
-    "/fileUpload": {
+    "/iOS/infoPlist": {
       "target": "http://192.168.199.225:8181",
       "changeOrigin": true
     }

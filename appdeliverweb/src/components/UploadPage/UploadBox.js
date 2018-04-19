@@ -26,7 +26,7 @@ type Props = {
   multiple: bool,
   action: string,
   headers: any,
-  data: any,
+  data: any
 }
 type State = {}
 
@@ -74,7 +74,8 @@ export default class UploadBox extends Component<Props, State> {
     })
     let promisefunc = (resolved, rejected) => {
       obj.then(() => {
-        rejected("我就是要报错！！！")
+        // rejected("我就是要报错！！！")
+        resolved()
       }).catch(function(error) {
         console.log(error);
       });
@@ -112,9 +113,10 @@ export default class UploadBox extends Component<Props, State> {
       redirect: 'follow',
       body: data
     }
-    return fetch('/fileUpload', options).then((response) => {
+    return fetch('/iOS/infoPlist', options).then((promise,response) => {
       console.log('第二步结束！');
-      console.log(response.json())
+      console.log(response)
+      console.log('第二步结束！111');
       return false
     }).catch(function(error) {
       console.log('error');
