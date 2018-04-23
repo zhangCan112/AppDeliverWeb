@@ -114,10 +114,9 @@ export default class UploadBox extends Component<Props, State> {
       body: data
     }
     return fetch('/iOS/infoPlist', options).then((response) => {
-      console.log('第二步结束！');
-      console.log(response.json())
-      console.log('第二步结束！111');
-      return false
+     return  response.json()
+    }).then((body) => {
+      console.log(body);
     }).catch(function(error) {
       console.log('error');
     })
