@@ -28,7 +28,14 @@ type Props = {
   headers: any,
   data: any
 }
-type State = {}
+type State = {
+  action: string,
+  OSSAccessKeyId: string,
+  key: string,
+  success_action_status: string,
+  policy: string,
+  Signature: string
+}
 
 export default class UploadBox extends Component<Props, State> {
 
@@ -42,15 +49,29 @@ export default class UploadBox extends Component<Props, State> {
     },
     data: {}
   }
+
+  constructor() {
+    super()
+    this.state = {
+      action: "",
+      OSSAccessKeyId: "",
+      key: "",
+      success_action_status: "",
+      policy: "",
+      Signature: ""
+    }
+  }
+
   render() {
     let props = {
       ...this.props,
+      action: this.state.action,
       data: {
-        'OSSAccessKeyId': 'LTAIP46PMViRaQCJ',
-        'key': 'zhangcan.app',
-        'success_action_status': '200',
-        'policy': policyBase64,
-        'Signature': EncBase64.stringify(hamcSha1(policyBase64, 'T4eDGknsW2PBbDpQ9tcqTEks42tahs'))
+        'OSSAccessKeyId': this.state.OSSAccessKeyId,
+        'key': this.state.key,
+        'success_action_status': this.state.success_action_status,
+        'policy': this.state.policy,
+        'Signature': this.state.Signature
       },
       beforeUpload: this.beforeUpload
     }
@@ -72,15 +93,18 @@ export default class UploadBox extends Component<Props, State> {
     let obj = this.unzipHandler(file).then((infoPlsitFile : File) => {
       return this.plistUpload(infoPlsitFile)
     })
-    let promisefunc = (resolved, rejected) => {
-      obj.then(() => {
-        // rejected("我就是要报错！！！")
-        resolved()
-      }).catch(function(error) {
-        console.log(error);
-      });
-    }
-    return new Promise(promisefunc)
+    return obj.then((data) => {
+      console.log(data);
+      this.setState({
+        ...this.state,
+        action: data["host"],
+        OSSAccessKeyId: data["OSSAccessKeyId"],
+        success_action_status: data["success_action_status"],
+        policy: data["policy"],
+        Signature: data["Signature"],
+        key: data["key"]
+      })
+    })
   }
 
   unzipHandler = (file : File) => {
@@ -114,7 +138,7 @@ export default class UploadBox extends Component<Props, State> {
       body: data
     }
     return fetch('/iOS/infoPlist', options).then((response) => {
-     return  response.json()
+      return response.json()
     }).then((body) => {
       return new Promise(function(resolve, reject) {
         if (body.scode == 0) {
@@ -123,8 +147,6 @@ export default class UploadBox extends Component<Props, State> {
           reject(body.message)
         }
       });
-    }).then((data) => {
-      console.log(data);
     }).catch(function(error) {
       console.log('error');
     })

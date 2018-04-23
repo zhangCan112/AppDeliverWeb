@@ -31,7 +31,7 @@ export default  class Home extends Component<Props, State> {
             <div className='Box'>
                 <img className='item_1' src={AppIcon_placeHolder}/>
                 <div className='item_2'>
-                  <QRCode size={150} value="itms-services://?action=download-manifest&url=https://gitee.com/loveBean001/PlistShangChuan/raw/master/ingage1.plist"/>
+                  <QRCode size={150} value="itms-services://?action=download-manifest&url=https://appdeliver.oss-cn-hangzhou.aliyuncs.com/plist/a9fdb849-91d5-4f49-90f1-1bff2f669d84-Info.plist"/>
                 </div>
             </div>
             <div className='Name'>销售易CRM</div>
