@@ -113,9 +113,9 @@ export default class UploadBox extends Component<Props, State> {
       redirect: 'follow',
       body: data
     }
-    return fetch('/iOS/infoPlist', options).then((promise,response) => {
+    return fetch('/iOS/infoPlist', options).then((response) => {
       console.log('第二步结束！');
-      console.log(response)
+      console.log(response.json())
       console.log('第二步结束！111');
       return false
     }).catch(function(error) {
