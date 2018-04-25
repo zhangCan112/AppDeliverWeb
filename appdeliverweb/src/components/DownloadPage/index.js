@@ -11,11 +11,28 @@ type Props = {
   test: string,
   number: number,
 }
-type State = {}
+type State = {
+  url: string
+}
 
 export default  class Home extends Component<Props, State> {
 
-    render() {
+  constructor() {
+    super()
+    this.state = {
+      url: "www.baidu.com"
+    }
+  }
+
+ componentDidMount() {
+   this.appUrlDownload().then((urlString) => {
+     console.log(urlString);
+     this.setState({...this.state, url: urlString})
+     return
+   })
+ }
+
+  render() {
         return (
             <div className='Home'>
                 <img className='Left' src={leftImg}></img>
@@ -31,7 +48,7 @@ export default  class Home extends Component<Props, State> {
             <div className='Box'>
                 <img className='item_1' src={AppIcon_placeHolder}/>
                 <div className='item_2'>
-                  <QRCode size={150} value="itms-services://?action=download-manifest&url=https://appdeliver.oss-cn-hangzhou.aliyuncs.com/plist/a9fdb849-91d5-4f49-90f1-1bff2f669d84-Info.plist"/>
+                  <QRCode size={150} value={this.state.url}/>
                 </div>
             </div>
             <div className='Name'>销售易CRM</div>
@@ -53,5 +70,29 @@ export default  class Home extends Component<Props, State> {
             </div>
           </div>
         );
+    }
+
+    appUrlDownload = () => {
+      let options = {
+        method: 'get',
+        mode: 'cors',
+        redirect: 'follow',
+      }
+      return fetch('/ios/appurl', options).then((response) => {
+        return response.json()
+      }).then((body) => {
+        return new Promise(function(resolve, reject) {
+          if (body.scode == 0) {
+            resolve(body.data)
+          } else {
+            reject(body.message)
+          }
+        });
+      }).then((data) => {
+        return data.url
+      })
+      .catch(function(error) {
+        console.log('error');
+      })
     }
 }
