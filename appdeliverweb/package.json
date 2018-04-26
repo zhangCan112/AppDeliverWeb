@@ -34,11 +34,11 @@
   },
   "proxy": {
     "/iOS/infoPlist": {
-      "target": "http://192.168.1.100:8181",
+      "target": "http://192.168.199.225:8181",
       "changeOrigin": true
     },
     "/ios/appurl": {
-      "target": "http://192.168.1.100:8181",
+      "target": "http://192.168.199.225:8181",
       "changeOrigin": true
     }
   }
