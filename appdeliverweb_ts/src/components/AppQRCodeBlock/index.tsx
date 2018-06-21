@@ -1,8 +1,10 @@
-import * as React from "react";
 import * as QRCode  from "qrcode.react";
+import * as React from "react";
+
+
 
 class AppQRCodeBlock extends React.Component {
-  render () {
+ public render () {
     return (
       <div>
         <image/>
